@@ -25,16 +25,22 @@ NEXT_PUBLIC_DEFAULT_LOCATION_NAME=
 
 ## 店舗ごとのLIFF URL
 
+LIFF Endpoint URL:
+
+```text
+https://celebrated-dango-1805b4.netlify.app/
+```
+
 Dashboardの `locations.id` を `locationId` としてURLに付けて開きます。
 
 ```text
-https://<line-app-domain>/?locationId=<locations.id>&locationName=<店舗名>&brandName=<ブランド名>
+https://celebrated-dango-1805b4.netlify.app/?locationId=<locations.id>&locationName=<店舗名>&brandName=<ブランド名>
 ```
 
 例:
 
 ```text
-https://line.looplet.example/?locationId=019f...&locationName=豊洲ららぽーと6F&brandName=chom%20Inc.
+https://celebrated-dango-1805b4.netlify.app/?locationId=019f...&locationName=豊洲ららぽーと6F&brandName=chom%20Inc.
 ```
 
 `locationId` はDashboard APIで必須です。`locationName` と `brandName` はLINE画面表示用です。
