@@ -1,0 +1,387 @@
+:root {
+  --bg: #efe9df;
+  --ink: #171717;
+  --muted: #6e665f;
+  --line: #dfd6cb;
+  --panel: #fffdf9;
+  --blue: #5f85f2;
+  --blue-strong: #416cf0;
+  --danger: #c43a31;
+  --ok: #24754d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic',
+    'YuGothic', 'Noto Sans JP', sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  width: min(100%, 520px);
+  min-height: 100svh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: calc(env(safe-area-inset-top) + 34px) 22px
+    calc(env(safe-area-inset-bottom) + 22px);
+}
+
+.return-screen {
+  justify-content: center;
+  gap: 34px;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.info-list {
+  display: grid;
+  gap: 26px;
+}
+
+.info-row {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.info-label {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.info-value {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: right;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.info-value.text {
+  overflow-wrap: anywhere;
+}
+
+.quantity-control {
+  justify-self: end;
+  display: grid;
+  grid-template-columns: 42px 58px 42px;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quantity-input {
+  width: 58px;
+  height: 42px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.remarks {
+  width: 100%;
+  min-height: 76px;
+  resize: vertical;
+  border: 0;
+  border-radius: 6px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--ink);
+}
+
+.primary-button {
+  width: 100%;
+  min-height: 58px;
+  border: 0;
+  border-radius: 28px;
+  background: linear-gradient(180deg, #86a2f8 0%, var(--blue-strong) 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(65, 108, 240, 0.24);
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+  opacity: 0.54;
+}
+
+.secondary-button {
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.inline-error {
+  margin: -12px 0 0;
+  color: var(--danger);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.camera-screen {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #111;
+}
+
+.camera-video,
+.camera-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(env(safe-area-inset-top) + 26px) 20px
+    calc(env(safe-area-inset-bottom) + 28px);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.44) 0%,
+    rgba(0, 0, 0, 0.08) 40%,
+    rgba(0, 0, 0, 0.48) 100%
+  );
+}
+
+.camera-copy {
+  margin: 0 auto;
+  max-width: 360px;
+  color: #fff;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.45;
+  font-weight: 800;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+}
+
+.focus-frame {
+  position: absolute;
+  inset: 25% 7% 18%;
+  border: 0 solid transparent;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-color: #fff;
+}
+
+.corner.tl {
+  top: 0;
+  left: 0;
+  border-top: 8px solid;
+  border-left: 8px solid;
+}
+
+.corner.tr {
+  top: 0;
+  right: 0;
+  border-top: 8px solid;
+  border-right: 8px solid;
+}
+
+.corner.bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 8px solid;
+  border-left: 8px solid;
+}
+
+.corner.br {
+  right: 0;
+  bottom: 0;
+  border-right: 8px solid;
+  border-bottom: 8px solid;
+}
+
+.camera-actions {
+  display: grid;
+  grid-template-columns: 76px 1fr 76px;
+  align-items: center;
+  gap: 14px;
+}
+
+.shutter {
+  justify-self: center;
+  width: 82px;
+  height: 82px;
+  border: 7px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.camera-side-button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.photo-strip {
+  position: absolute;
+  right: 16px;
+  bottom: calc(env(safe-area-inset-bottom) + 124px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.thumb {
+  width: 58px;
+  height: 58px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.submit-screen {
+  justify-content: center;
+  gap: 22px;
+}
+
+.summary-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  font-size: 15px;
+}
+
+.summary-row strong {
+  text-align: right;
+}
+
+.result {
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.result.ok {
+  color: var(--ok);
+}
+
+.result.error {
+  color: var(--danger);
+}
+
+.file-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (max-width: 380px) {
+  .screen {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .info-row {
+    padding-right: 18px;
+    padding-left: 18px;
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .info-label {
+    font-size: 18px;
+  }
+
+  .quantity-control {
+    grid-template-columns: 38px 50px 38px;
+  }
+
+  .icon-button {
+    width: 38px;
+    height: 38px;
+  }
+}
